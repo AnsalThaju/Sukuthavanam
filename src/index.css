@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: var(--primary);
+  --color-brand-secondary: var(--secondary);
+  --color-brand-accent: var(--accent);
+  --color-brand-bg: var(--bg);
+  --color-brand-dark: var(--text-main);
+  --color-brand-surface: var(--surface);
+  --color-brand-surface-dark: var(--surface-dark);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+@layer base {
+  :root {
+    --primary: #2d5a27;
+    --secondary: #8b9a46;
+    --accent: #d4a373;
+    --bg: #fefdf9;
+    --text-main: #121512;
+    --surface: #ffffff;
+    --surface-dark: #1e231f;
+    color-scheme: light;
+  }
+  
+  .dark {
+    --primary: #3FA34D;
+    --secondary: #3FA34D;
+    --accent: #3FA34D;
+    --bg: #0B0F0C;
+    --text-main: #F3F4F6;
+    --surface: #111827;
+    --surface-dark: #111827;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-brand-bg text-brand-dark antialiased overflow-x-hidden;
+    font-family: var(--font-sans);
+    transition: background-color 0.3s, color 0.3s;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+  
+  .dark .glass {
+    @apply bg-black/20 border-white/10;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
